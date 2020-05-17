@@ -11,17 +11,17 @@ script:
   - docker run -e CI=true aisha/react-test npm test
 
 after_success:
-  - docker build -t aisha/multi-client ./client
-  - docker build -t aisha/multi-server ./server
-  - docker build -t aisha/multi-nginx ./nginx
-  - docker build -t aisha/multi-worker ./worker
+  - docker build -t aishaxo/multi-client ./client
+  - docker build -t aishaxo/multi-server ./server
+  - docker build -t aishaxo/multi-nginx ./nginx
+  - docker build -t aishaxo/multi-worker ./worker
   #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_ID" --password-stdin
   #Push the images to docker hub
-  - docker push aisha/multi-client
-  - docker push aisha/multi-server
-  - docker push aisha/multi-nginx
-  - docker push aisha/multi-worker
+  - docker push aishaxo/multi-client
+  - docker push aishaxo/multi-server
+  - docker push aishaxo/multi-nginx
+  - docker push aishaxo/multi-worker
 #deploy:
 #  provider: elasticbeanstalk
 #  region: "us-east-2"
